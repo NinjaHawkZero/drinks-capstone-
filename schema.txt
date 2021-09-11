@@ -1,0 +1,23 @@
+
+    """Model for users."""
+
+    __tablename__ = "users"
+
+    username = db.Column(db.String(20), nullable=False, unique=True, primary_key=True)
+    password = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(30), nullable=False)
+
+    favorite_drinks = db.relationship("FavDrink", backref="user", cascade = "all, delete")
+
+
+
+
+    """Model for Favorite drinks."""
+
+    __tablename__ = "FavDrink"
+
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    drink_id = db.Column(db.Integer, nullable=False)
+    username = db.Column(db.String(20), db.ForeignKey('users.username'), nullable=False)

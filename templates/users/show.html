@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create User
+{% endblock %}
+
+
+{% block content %}
+
+<a href="/users/{{user.username}}/drinks">Search For Drinks</a>
+
+{% for drink in drink_objs %}
+
+
+
+<div class="col-mid-6">
+    <div class="card my-3">
+      <form method="POST" action="/users/favDrinks/{{drink[0].idDrink}}/{{drink[0].strDrink}}">
+        <button type="submit"  class="favorite-btn btn btn-outline-info">
+          +
+          </button>
+      </form>
+
+   
+    <img class="card-img-top" src="{{drink[0].strDrinkThumb}}" alt="{{drink[0].strDrink}}">
+
+    <div class="card-body">
+    <h2 class="card-title text-center">{{drink[0].strDrink}}</h2>
+    <p class="card-text font-weight-bold">Instructions:</p>
+    <p class="card-text">
+    {{drink[0].strInstructions}}
+    </p>
+    <p class="card-text">
+    <ul class="list-group">
+      
+    <li class="list-group-item alert alert-danger">Ingredients</li> 
+
+    {% if drink[0].strIngredient1 %}
+    <li class="list-group-item">{{drink[0].strIngredient1}}-{{drink[0].strMeasure1}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient2 %}
+    <li class="list-group-item">{{drink[0].strIngredient2}}-{{drink[0].strMeasure2}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient3 %}
+    <li class="list-group-item">{{drink[0].strIngredient3}}-{{drink[0].strMeasure3}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient4 %}
+    <li class="list-group-item">{{drink[0].strIngredient4}}-{{drink[0].strMeasure4}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient5 %}
+    <li class="list-group-item">{{drink[0].strIngredient5}}-{{drink[0].strMeasure5}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient6 %}
+    <li class="list-group-item">{{drink[0].strIngredient6}}-{{drink[0].strMeasure6}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient7 %}
+    <li class="list-group-item">{{drink[0].strIngredient7}}-{{drink[0].strMeasure7}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient8 %}
+    <li class="list-group-item">{{drink[0].strIngredient8}}-{{drink[0].strMeasure8}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient9 %}
+    <li class="list-group-item">{{drink[0].strIngredient9}}-{{drink[0].strMeasure9}}</li>
+    {% endif %}
+
+    {% if drink[0].strIngredient10 %}
+    <li class="list-group-item">{{drink[0].strIngredient10}}-{{drink[0].strMeasure10}}</li>
+    {% endif %}
+
+    
+
+
+    
+    
+   
+    </ul>
+    </p>
+   
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+{% endfor %}
+
+{% endblock %}
