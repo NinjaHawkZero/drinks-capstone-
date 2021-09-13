@@ -29,7 +29,7 @@ connect_db(app)
 
 
 
-
+db.create_all()
 
 
 
